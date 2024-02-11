@@ -10,12 +10,7 @@
 * Procurar e Rempvoção da Fração na Árvore
 * Geração do Grafico da Árvore Avl
 
-## Loading
-<p align="center">
-  <img src="screeshot/Captura de Ecrã (295).png" >
-</p>
-
-## Previws
+## Previews
 <p align="center">
   <img src="src/0.png" >
 </p>
