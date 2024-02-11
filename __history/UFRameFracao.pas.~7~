@@ -1,0 +1,63 @@
+unit UFRameFracao;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
+  FMX.Controls.Presentation, FMX.Edit, FMX.Objects, FMX.Layouts;
+
+type
+  TFrame_Fracao = class(TFrame)
+    Layout1: TLayout;
+    Line1: TLine;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    procedure FrameResize(Sender: TObject);
+  private
+    Fnumerador: double;
+    Fdenominador: double;
+    procedure Setdenominador(const Value: double);
+    procedure Setnumerador(const Value: double);
+    { Private declarations }
+  public
+    { Public declarations }
+    property numerador:double read Fnumerador write Setnumerador;
+    property denominador:double read Fdenominador write Setdenominador;
+    function enumero(numero:string):boolean;
+  end;
+
+implementation
+
+{$R *.fmx}
+
+function TFrame_Fracao.enumero(numero: String): boolean;
+begin
+  try
+    numero.ToDouble;
+    Result:=true;
+  except
+  begin
+    result:=false;
+  end;
+
+  end;
+end;
+
+procedure TFrame_Fracao.FrameResize(Sender: TObject);
+begin
+  edit1.Height:=trunc(self.Height/2);
+end;
+
+procedure TFrame_Fracao.Setdenominador(const Value: double);
+begin
+
+  Fdenominador := Value;
+end;
+
+procedure TFrame_Fracao.Setnumerador(const Value: double);
+begin
+  Fnumerador := Value;
+end;
+
+end.

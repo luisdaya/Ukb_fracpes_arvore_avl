@@ -1,0 +1,27 @@
+unit Uno;
+
+interface
+uses system.IOUtils,System.SysUtils;
+type
+  TNo=class
+  public
+    valor:TFrame_Fracao;
+    dir:TNo;
+    esq:TNO;
+    constructor Create(Avalor:double); overload;
+  end;
+implementation
+
+{ TNo }
+
+uses UFRameFracao;
+
+constructor TNo.Create(Avalor:double);
+begin
+
+  valor:=Avalor;
+  esq:=nil;
+  dir:=nil;
+end;
+
+end.

@@ -1,0 +1,146 @@
+unit uarvore;
+
+interface
+uses Uno,system.IOUtils,System.SysUtils,
+system.Generics.Collections,
+UFRameFracao;
+type
+  Tarvore = class
+
+  public
+    Raiz:TNO;
+    FFracoes:TList<TFrame_Fracao>;
+    constructor Create(); overload;
+    procedure addicionar(valor:TFrame_Fracao);
+    function ordem(Araiz:TNO):Tlist<TFrame_Fracao>;
+    function Preordem(Araiz: TNO):Tlist<TFrame_Fracao>;
+    function Posordem(Araiz: TNO):Tlist<TFrame_Fracao>;
+    procedure apagar;overload;
+    function pesquizar(Araiz:TNO;Quociente:double):boolean;
+    function Apagar(Araiz:TNO;Quociente:double;direcao:string=''):boolean;overload;
+  end;
+implementation
+
+{ Tarvore }
+
+
+procedure Tarvore.addicionar(valor:TFrame_Fracao);
+begin
+  var novoNO:=TNO.Create(valor);
+  if raiz = nil then
+    raiz:=novoNO
+  else
+  begin
+    var actual:=raiz;
+    while true do
+    begin
+      if   novoNO.fracao.quociente < actual.fracao.quociente then
+      begin
+        if actual.esq <> nil then
+          actual:=actual.esq
+        else
+        begin
+          actual.esq:=novoNO;
+          break;
+        end;
+      end
+      else
+      begin
+        if actual.dir <> nil then
+           actual:=actual.dir
+        else
+        begin
+          actual.dir:=novoNO;
+          break;
+        end;
+      end;
+    end;
+  end;
+
+end;
+
+procedure Tarvore.apagar;
+begin
+  for var I := FFracoes.Count-1 downto 0 do
+  begin
+    FFracoes.Delete(i);
+  end;
+end;
+
+function Tarvore.apagar(Araiz: TNO; Quociente: double;direcao:string): boolean;
+begin
+  if Araiz <> nil then
+  begin
+    if Araiz.fracao.quociente = Quociente then
+      raiz:=nil
+    else if Araiz.esq.fracao.quociente = Quociente then
+    begin
+      if not direcao then
+        Araiz.esq:=nil;
+    end;
+    apagar(Araiz.esq,Quociente,'esq');
+    apagar(Araiz.dir,Quociente,'dir');
+  end;
+end;
+
+constructor Tarvore.Create();
+begin
+  inherited;
+  raiz:=nil;
+  FFracoes:=TList<TFrame_Fracao>.create;
+end;
+
+function Tarvore.ordem(Araiz: TNO):Tlist<TFrame_Fracao>;
+begin
+  if Araiz <> nil then
+  begin
+    FFracoes.Add(Araiz.fracao);
+    ordem(Araiz.esq);
+    ordem(Araiz.dir);
+     result:=FFracoes;
+  end;
+end;
+
+
+function Tarvore.pesquizar(Araiz: TNO; Quociente: double): boolean;
+begin
+
+  if Araiz <> nil then
+  begin
+    if Araiz.fracao.quociente = Quociente then
+    begin
+      result:=true;
+      exit;
+    end;
+    ordem(Araiz.esq);
+    ordem(Araiz.dir);
+
+  end;
+end;
+
+function Tarvore.Preordem(Araiz: TNO):Tlist<TFrame_Fracao>;
+begin
+  if Araiz <> nil then
+  begin
+    Preordem(Araiz.esq);
+    //Writeln(Araiz.valor.ToString);
+     FFracoes.Add(Araiz.fracao);
+     Preordem(Araiz.dir);
+
+     Result:=FFracoes;
+  end;
+end;
+
+function Tarvore.Posordem(Araiz: TNO):Tlist<TFrame_Fracao>;
+begin
+  if Araiz <> nil then
+  begin
+    Posordem(Araiz.dir);
+    Posordem(Araiz.esq);
+    //Writeln(Araiz.valor.ToString);
+     FFracoes.Add(Araiz.fracao);
+     Result:=FFracoes;
+  end;
+end;
+
+end.

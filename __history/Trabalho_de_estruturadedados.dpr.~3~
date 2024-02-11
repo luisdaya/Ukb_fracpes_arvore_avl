@@ -1,0 +1,15 @@
+program Trabalho_de_estruturadedados;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  UInicial in 'UInicial.pas' {Form1},
+  UFRameFracao in 'UFRameFracao.pas' {Frame_Fracao: TFrame};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

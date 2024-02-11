@@ -1,0 +1,25 @@
+unit Uno;
+
+interface
+uses system.IOUtils,System.SysUtils;
+type
+  TNo=class
+  public
+    valor:double;
+    dir:TNo;
+    esq:TNO;
+    constructor Create(Avalor:double); overload;
+  end;
+implementation
+
+{ TNo }
+
+constructor TNo.Create(Avalor:double);
+begin
+
+  valor:=Avalor;
+  esq:=nil;
+  dir:=nil;
+end;
+
+end.

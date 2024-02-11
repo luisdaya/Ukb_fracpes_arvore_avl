@@ -1,0 +1,1040 @@
+unit UInicial;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Effects,
+  FMX.Filter.Effects, FMX.TabControl, System.Actions, FMX.ActnList, FMX.Edit,
+  UFRameFracao,system.Generics.Collections,
+  uarvore, StrUtils;
+
+type
+  TForm1 = class(TForm)
+    Rectangle1: TRectangle;
+    Image1: TImage;
+    Image2: TImage;
+    Layout1: TLayout;
+    Layout2: TLayout;
+    Label1: TLabel;
+    Layout3: TLayout;
+    Label2: TLabel;
+    Layout4: TLayout;
+    Layout5: TLayout;
+    Layout6: TLayout;
+    Label3: TLabel;
+    GridLayout1: TGridLayout;
+    Rectangle2: TRectangle;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Image3: TImage;
+    Label7: TLabel;
+    Layout7: TLayout;
+    Label8: TLabel;
+    Image4: TImage;
+    Label9: TLabel;
+    Rectangle3: TRectangle;
+    Label10: TLabel;
+    Label11: TLabel;
+    Rectangle4: TRectangle;
+    Label12: TLabel;
+    Label13: TLabel;
+    Rectangle5: TRectangle;
+    Label14: TLabel;
+    Label15: TLabel;
+    Rectangle6: TRectangle;
+    Label16: TLabel;
+    Label17: TLabel;
+    ShadowEffect1: TShadowEffect;
+    imgsombra: TImage;
+    sombra: TShadowEffect;
+    TabControl1: TTabControl;
+    TabItem1: TTabItem;
+    TabItem2: TTabItem;
+    TabItem3: TTabItem;
+    Layout12: TLayout;
+    Image9: TImage;
+    FillRGBEffect5: TFillRGBEffect;
+    Rectangle19: TRectangle;
+    Image16: TImage;
+    Rectangle20: TRectangle;
+    Image17: TImage;
+    ActionList1: TActionList;
+    ct: TChangeTabAction;
+    StyleBook1: TStyleBook;
+    Layout8: TLayout;
+    Rectangle7: TRectangle;
+    ShadowEffect2: TShadowEffect;
+    Line1: TLine;
+    Label18: TLabel;
+    Label19: TLabel;
+    recmais: TRectangle;
+    ShadowEffect3: TShadowEffect;
+    Label20: TLabel;
+    Rectangle9: TRectangle;
+    ShadowEffect4: TShadowEffect;
+    Rectangle10: TRectangle;
+    ShadowEffect5: TShadowEffect;
+    Label22: TLabel;
+    recdiv: TRectangle;
+    ShadowEffect6: TShadowEffect;
+    Label23: TLabel;
+    recvezes: TRectangle;
+    ShadowEffect7: TShadowEffect;
+    Label24: TLabel;
+    recmenos: TRectangle;
+    ShadowEffect8: TShadowEffect;
+    Label25: TLabel;
+    Rectangle14: TRectangle;
+    ShadowEffect9: TShadowEffect;
+    Label21: TLabel;
+    Layout9: TLayout;
+    SpeedButton1: TSpeedButton;
+    svoltar: TSpeedButton;
+    Rectangle18: TRectangle;
+    Image15: TImage;
+    Layout10: TLayout;
+    Layout11: TLayout;
+    Rectangle17: TRectangle;
+    ShadowEffect12: TShadowEffect;
+    SpeedButton2: TSpeedButton;
+    Rectangle21: TRectangle;
+    ShadowEffect13: TShadowEffect;
+    Label29: TLabel;
+    Rectangle25: TRectangle;
+    ShadowEffect17: TShadowEffect;
+    Label33: TLabel;
+    Rectangle15: TRectangle;
+    ShadowEffect10: TShadowEffect;
+    SpeedButton3: TSpeedButton;
+    Rectangle16: TRectangle;
+    ShadowEffect11: TShadowEffect;
+    SpeedButton4: TSpeedButton;
+    Layout13: TLayout;
+    Layout14: TLayout;
+    lyrexibir: TLayout;
+    Label26: TLabel;
+    Layout15: TLayout;
+    Label27: TLabel;
+    Layout16: TLayout;
+    Label28: TLabel;
+    Label30: TLabel;
+    Rectangle8: TRectangle;
+    ShadowEffect14: TShadowEffect;
+    SpeedButton5: TSpeedButton;
+    Label31: TLabel;
+    procedure Rectangle1MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
+    procedure FormCreate(Sender: TObject);
+    procedure Rectangle2MouseEnter(Sender: TObject);
+    procedure Rectangle6MouseLeave(Sender: TObject);
+    procedure Rectangle19MouseEnter(Sender: TObject);
+    procedure Rectangle19MouseLeave(Sender: TObject);
+    procedure Rectangle20DragEnter(Sender: TObject; const Data: TDragObject;
+      const Point: TPointF);
+    procedure Rectangle19Click(Sender: TObject);
+    procedure Rectangle20DragLeave(Sender: TObject);
+    procedure Rectangle7Click(Sender: TObject);
+    procedure Rectangle9Click(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
+    procedure Rectangle3Click(Sender: TObject);
+    procedure svoltarClick(Sender: TObject);
+    procedure Label20Click(Sender: TObject);
+    procedure Rectangle10Click(Sender: TObject);
+    procedure Rectangle18Click(Sender: TObject);
+    procedure Rectangle14Click(Sender: TObject);
+    procedure Rectangle15Click(Sender: TObject);
+    procedure Rectangle16Click(Sender: TObject);
+    procedure Rectangle21Click(Sender: TObject);
+    procedure Rectangle25Click(Sender: TObject);
+    procedure Rectangle7MouseEnter(Sender: TObject);
+    procedure Rectangle7MouseLeave(Sender: TObject);
+    procedure Label20MouseLeave(Sender: TObject);
+    procedure Label20MouseEnter(Sender: TObject);
+    procedure Rectangle17Click(Sender: TObject);
+    procedure Rectangle8Click(Sender: TObject);
+  private
+    procedure imgBarraCor(rec: trectangle; evt: boolean=true);
+    { Private declarations }
+  public
+    arvore:Tarvore;
+    { Public declarations }
+    procedure ma(Atabitem:TTabitem;Sender:TObject);
+    procedure Papagar(troca:boolean);
+    procedure lclick(sender:tobject);
+    procedure pfracao(Afr:TFrame_Fracao;pai:tlayout);
+    procedure Psinal_Igual(eliminar:boolean=true);
+    procedure recsinaisTracos(remover:boolean=false);
+    function Psimplificar(Aquociente,Anumerador,Adenominador:double):TControl;
+    function divisorcomun(Anumerador,Adenominador:double):tarray<string>;
+    function Pcalcular(fracao1,fracao2:TFrame_Fracao;operacao:double=1): TFrame_Fracao;
+    procedure Ppesquizados(Alayout:Tlayout;Aquociente:double);
+  end;
+
+var
+  Form1: TForm1;
+  Fsinais,
+  Ffracao,
+  FArvfracao:integer;
+  chift,Igual,Arvpesq,Arvapagar:boolean;
+  lblsinal:Tlabel;
+  Lfracao:TList<TFrame_Fracao>;
+  Loperacao:Tlist<tlabel>;
+implementation
+
+{$R *.fmx}
+
+function TForm1.divisorcomun(Anumerador, Adenominador: double): tarray<string>;
+var i:integer;
+begin
+
+  if (trunc(Adenominador) mod trunc(Anumerador)) = 0 then
+  begin
+    Adenominador:=trunc(Adenominador) / trunc(Anumerador);
+    Anumerador:=trunc(Anumerador) / trunc(Anumerador);
+  end else
+  begin
+    if ((trunc(Anumerador) mod 2) = 0) and ((trunc(Adenominador) mod 2) = 0) then
+      i:=2
+    else
+      i:=3;
+
+    for var E := 1 to 4 do
+    begin
+      if ((trunc(Anumerador) mod i) = 0) and ((trunc(Adenominador) mod i) = 0) then
+      begin
+          Anumerador:=trunc(Anumerador)/i;
+          Adenominador:=trunc(Adenominador)/i;
+          Break;
+      end;
+      i:=i+2;
+    end;
+  end;
+  Result:=tarray<string>.create(Anumerador.ToString,Adenominador.ToString);
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  TabControl1.ActiveTab:=tabitem1;
+  GridLayout1.ItemWidth:=trunc(GridLayout1.Width/5);
+end;
+
+procedure TForm1.Rectangle10Click(Sender: TObject);
+var denominador,
+    numerador:double;
+    fracao:TFrame_Fracao;
+begin
+  {$region 'Igualdade'}
+    if igual = true then
+    begin
+
+      Psinal_Igual(false);
+      var cf:=self.FindComponent('fracao_resultado');
+      if cf <> nil then
+         cf.free;
+    end;
+  {$endregion}
+
+  {$region 'calculo complexo'}
+    if layout9.ControlsCount > 2 then
+    begin
+      Psinal_Igual;
+      Lfracao:=TList<TFrame_Fracao>.Create;
+      Loperacao:=TList<Tlabel>.Create;
+
+      {$region 'Armazenar afraçõese e Sinal'}
+        for var I := 0 to layout9.ControlsCount-2 do
+        begin
+          if layout9.Controls[i] is TFrame_Fracao then
+            Lfracao.add(layout9.Controls[i] as TFrame_Fracao)
+          else
+            Loperacao.add(layout9.Controls[i] as Tlabel);
+        end;
+      {$endregion}
+
+      if Lfracao.Count > 1 then
+      begin
+        for var I := 0 to Loperacao.Count-1 do
+        begin
+
+          var fr2:=Lfracao.Items[i+1];
+          var operacao:=Loperacao.Items[i];
+
+          if I = 0 then
+          begin
+            var fr1:=Lfracao.Items[i];
+
+            fracao:=Pcalcular(fr1,fr2,operacao.tag);
+          end
+          else
+            fracao:=Pcalcular(fracao,fr2,operacao.tag);
+        end;
+      end;
+
+      var p:=Psimplificar(fracao.quociente,fracao.numerador,fracao.denominador);
+      if p is tlabel then
+      begin
+        var fr:= p as tlabel;
+        fr.Align:=TAlignLayout.Left;
+        fr.Name:='fracao_resultado';
+        fr.Position.X:=20000;
+        layout9.AddObject(fr);
+      end
+      else if p is TFrame_Fracao then
+      begin
+        var fr:= p as TFrame_Fracao;
+        fr.Align:=TAlignLayout.Left;
+        fr.Name:='fracao_resultado';
+        fr.Position.X:=20000;
+        layout9.AddObject(fr);
+      end
+    end
+  {$endregion}
+  {$region 'calculo simples'}
+    else if (layout9.ControlsCount = 1) or ((layout9.ControlsCount = 3) and (layout9.Controls[1].Name = 'Igual')) then
+    begin
+      Psinal_Igual;
+      if layout9.Controls[0] is TFrame_Fracao then
+      begin
+        var f:=layout9.Controls[0] as TFrame_Fracao;
+        var p:=Psimplificar(f.quociente,f.numerador,f.denominador);
+        if p is tlabel then
+        begin
+          var fr:= p as tlabel;
+          fr.Align:=TAlignLayout.Left;
+          fr.Name:='fracao_resultado';
+          fr.Position.X:=20000;
+          layout9.AddObject(fr);
+        end
+        else if p is TFrame_Fracao then
+        begin
+          var fr:= p as TFrame_Fracao;
+          fr.Align:=TAlignLayout.Left;
+          fr.Name:='fracao_resultado';
+          fr.Position.X:=20000;
+          layout9.AddObject(fr);
+        end
+      end;
+    end;
+  {$endregion}
+end;
+
+procedure TForm1.Rectangle14Click(Sender: TObject);
+begin
+  Rectangle18Click(rectangle18);
+  if TRectangle(sender).Tag = 0 then
+  begin
+    TRectangle(sender).Tag:=1;
+    TRectangle(sender).Fill.Color:=$6F0099FF;
+    ShadowEffect9.Enabled:=false;
+    Layout10.Visible:=true;
+
+    for var I := 0 to layout8.ControlsCount-2 do
+    begin
+      if layout8.Controls[i] is TRectangle then
+      begin
+          TRectangle(layout8.Controls[i]).Enabled:=false;
+      end;
+    end;
+  end
+  else
+  begin
+    TRectangle(sender).Tag:=0;
+    TRectangle(sender).Fill.Color:=$fFffffff;
+    ShadowEffect9.Enabled:=true;
+    Layout10.Visible:=false;
+    for var I := 0 to layout8.ControlsCount-2 do
+    begin
+      if layout8.Controls[i] is TRectangle then
+      begin
+          TRectangle(layout8.Controls[i]).Enabled:=true;
+      end;
+    end;
+  end;
+
+end;
+
+procedure TForm1.Rectangle15Click(Sender: TObject);
+begin
+  if Arvpesq then
+  BEGIN
+    Arvpesq:=false;
+    Rectangle16.Fill.Color:=$ffffffff;
+    Rectangle17Click(Rectangle17);
+  END;
+
+  var f:=TFrame_Fracao.Create(self);
+  f.Align:=TAlignLayout.Left;
+  f.Name:='Arvfracao_'+FArvfracao.ToString;
+  f.Position.X:=1000;
+  layout13.AddObject(f);
+  inc(fArvfracao);
+end;
+
+procedure TForm1.Rectangle16Click(Sender: TObject);
+begin
+  if not Arvpesq then
+  begin
+    for var I := layout13.ControlsCount-1 downto 0 do
+    begin
+      layout13.Controls[i].Free;
+    end;
+
+    var f:=TFrame_Fracao.Create(self);
+    f.Align:=TAlignLayout.Left;
+    f.Name:='Arvfracao_';
+    f.Position.X:=1000;
+    layout13.AddObject(f);
+    inc(fArvfracao);
+
+    Arvpesq:=true;
+
+    TRectangle(sender).Fill.Color:=$ffff5e13;
+  end
+  else
+  begin
+    var tmpF:=self.FindComponent('Arvfracao_');
+    if tmpF <> nil then
+    begin
+      var f:=tmpF as TFrame_Fracao;
+      if arvore.pesquizar(arvore.Raiz,f.quociente) then
+      begin
+
+         PPesquizados(layout14,f.quociente);
+         PPesquizados(layout15,f.quociente);
+         PPesquizados(layout16,f.quociente);
+
+      end;
+
+    end;
+  end;
+end;
+
+procedure TForm1.Rectangle17Click(Sender: TObject);
+begin
+   if layout13.ControlsCount > 0 then
+  begin
+    if Chift then
+    begin
+      for var I := layout13.ControlsCount-1 downto 0 do
+      begin
+        layout13.Controls[i].Free;
+      end;
+    end else if (layout13.Controls[layout13.ControlsCount-1] is tlabel) and (tlabel(layout9.Controls[layout9.ControlsCount-1]).Name = 'Igual') then
+    begin
+      layout13.Controls[layout13.ControlsCount-1].Free;
+    end else if layout13.ControlsCount = 1 then
+    begin
+       layout13.Controls[layout13.ControlsCount-1].Free;
+    end else
+    begin
+        layout13.Controls[layout13.ControlsCount-1].Free;
+    end;
+  end;
+end;
+
+procedure TForm1.Rectangle18Click(Sender: TObject);
+begin
+
+  if self.WindowState = TWindowState.wsNormal then
+      self.WindowState:=TWindowState.wsMaximized
+   else
+      self.WindowState:=TWindowState.wsNormal;
+end;
+
+procedure TForm1.Rectangle19Click(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
+procedure TForm1.Rectangle19MouseEnter(Sender: TObject);
+begin
+   var r:=TRectangle(sender);
+   imgBarraCor(r,false);
+   r.Fill.Color:=$ffff5e13;
+end;
+
+procedure TForm1.Rectangle19MouseLeave(Sender: TObject);
+begin
+  var r:=TRectangle(sender);
+  imgBarraCor(r);
+  r.Fill.Color:=$ffffffff;
+end;
+
+procedure TForm1.FormKeyUp(Sender: TObject; var Key: Word; var KeyChar: Char;
+  Shift: TShiftState);
+begin
+  if key = vkShift then
+  begin
+    if chift then
+      chift:=false
+    else
+      chift:=true;
+    Papagar(chift);
+  end;
+end;
+
+procedure TForm1.imgBarraCor(rec:trectangle;evt:boolean=true);
+begin
+    for var I := 0 to rec.ChildrenCount-1 do
+    if rec.Children[i] is timage then
+    begin
+      var imgs:=rec.Children[i] as timage;
+      if evt then
+        imgs.Bitmap.ReplaceOpaqueColor($ff003366)
+      else
+        imgs.Bitmap.ReplaceOpaqueColor($ffffffff);
+    end;
+
+end;
+
+procedure TForm1.Label20Click(Sender: TObject);
+begin
+  if lblsinal <> nil then
+  begin
+    recsinaisTracos(true);
+    lblsinal.Tag:=Tlabel(sender).Tag;
+    lblsinal.text:=Tlabel(sender).Text;
+    lblsinal.FontColor:=$ff000000;
+    lblsinal:=nil;
+  end;
+end;
+
+procedure TForm1.Label20MouseEnter(Sender: TObject);
+begin
+  tlabel(sender).fontColor:=$ffff5e13;
+  Rectangle7MouseEnter(tlabel(sender).parent);
+end;
+
+procedure TForm1.Label20MouseLeave(Sender: TObject);
+begin
+  tlabel(sender).FontColor:=$ff000000;
+  Rectangle7MouseLeave(tlabel(sender).parent);
+end;
+
+procedure TForm1.lclick(sender: tobject);
+begin
+  tlabel(sender).FontColor:=$ffff5e13;
+  lblsinal:=tlabel(sender);
+  recsinaisTracos;
+end;
+
+procedure TForm1.ma(Atabitem: TTabitem; Sender: TObject);
+begin
+  ct.Tab:=Atabitem;
+  ct.ExecuteTarget(sender);
+end;
+
+procedure TForm1.Papagar(troca: boolean);
+begin
+  if troca then
+  begin
+    rectangle9.Fill.Color:=$7FFF0000;
+    ShadowEffect4.Enabled:=false;
+
+    rectangle17.Fill.Color:=$7FFF0000;
+    ShadowEffect12.Enabled:=false;
+
+  end
+  else
+  begin
+    rectangle9.Fill.Color:=$ffffffff;
+    ShadowEffect4.Enabled:=true;
+
+    rectangle17.Fill.Color:=$ffffffff;
+    ShadowEffect12.Enabled:=true;
+
+  end;
+end;
+
+function TForm1.Pcalcular(fracao1, fracao2: TFrame_Fracao;
+  operacao: double): TFrame_Fracao;
+var denominador,
+    numerador:double;
+begin
+
+  {$region 'Soma'}
+    if operacao = 1 then
+    begin
+      if fracao1.denominador = fracao2.denominador then
+      begin
+        denominador:=fracao1.denominador;
+        numerador:=fracao1.numerador+fracao2.numerador;
+      end
+      else if fracao1.denominador <> fracao2.denominador then
+      begin
+        var numerador1:=fracao1.numerador * fracao2.denominador;
+        var numerador2:=fracao2.numerador * fracao1.denominador;
+        try
+        if (fracao2.denominador > 0) and ((trunc(fracao1.denominador) MOD trunc(fracao2.denominador)) = 0) then
+        begin
+          denominador:=fracao1.denominador;
+          numerador1:=fracao1.numerador;
+          numerador2:=fracao2.numerador * (fracao1.denominador / fracao2.denominador);
+        end
+        else if (fracao1.denominador > 0) and ((trunc(fracao2.denominador) MOD trunc(fracao1.denominador)) = 0 ) then
+        begin
+          denominador:=fracao2.denominador;
+          numerador1:=fracao1.numerador * (fracao2.denominador / fracao1.denominador);
+          numerador2:=fracao2.numerador;
+        end
+        else
+        begin
+           denominador:=fracao1.denominador * fracao2.denominador;
+           numerador1:=fracao1.numerador * fracao2.denominador;
+           numerador2:=fracao2.numerador * fracao1.denominador;
+        end;
+
+        numerador:=numerador1+numerador2;
+       except
+       end;
+
+       end;
+    end
+  {$endregion}
+  {$region 'Subtração'}
+    else if operacao = 2 then
+    begin
+       if fracao1.denominador = fracao2.denominador then
+       begin
+           denominador:=fracao1.denominador;
+           numerador:=fracao1.numerador - fracao2.numerador;
+       end
+       else if fracao1.denominador <> fracao2.denominador then
+       begin
+        var numerador1:=fracao1.numerador * fracao2.denominador;
+        var numerador2:=fracao2.numerador * fracao1.denominador;
+
+        if (fracao2.denominador > 0) and ((trunc(fracao1.denominador) MOD trunc(fracao2.denominador)) = 0) then
+        begin
+          denominador:=fracao1.denominador;
+          numerador1:=fracao1.numerador;
+          numerador2:=fracao2.numerador * (fracao1.denominador / fracao2.denominador);
+        end
+        else if (fracao1.denominador > 0) and ((trunc(fracao2.denominador) MOD trunc(fracao1.denominador)) = 0) then
+        begin
+          denominador:=fracao2.denominador;
+          numerador1:=fracao1.numerador * (fracao2.denominador / fracao1.denominador);
+          numerador2:=fracao2.numerador;
+        end
+        else
+        begin
+           denominador:=fracao1.denominador * fracao2.denominador;
+           numerador1:=fracao1.numerador * fracao2.denominador;
+           numerador2:=fracao2.numerador * fracao1.denominador;
+        end;
+
+        numerador:=numerador1 - numerador2;
+
+       end;
+    end
+  {$endregion}
+  {$region 'multiplicacão'}
+    else if operacao = 3 then
+    begin
+      denominador:= fracao1.denominador * fracao2.denominador;
+      numerador:= fracao1.numerador * fracao2.numerador;
+    end
+  {$endregion}
+  {$region 'Divisão'}
+    else if operacao = 4 then
+    begin
+      denominador:=fracao1.denominador * fracao2.numerador;
+      numerador:=fracao1.numerador * fracao2.denominador;
+
+    end;
+  {$endregion}
+  result:=TFrame_Fracao.Create(self);
+  result.Name:=fracao1.Name+'_prov_'+ReplaceStr(timeToStr(now()),':','_');
+  result.edit1.text:=numerador.ToString;
+  result.edit2.text:=denominador.ToString;
+
+end;
+
+procedure TForm1.pfracao(Afr: TFrame_Fracao;pai:tlayout);
+begin
+  var f:=TFrame_Fracao.Create(self);
+  f.Align:=TAlignLayout.Left;
+  f.Name:='Arvfracao_0'+FArvfracao.ToString;
+  f.Position.X:=1000;
+  f.Edit1.Text:=Afr.Edit1.Text;
+  f.Edit2.Text:=Afr.Edit2.Text;
+  f.quociente:=Afr.quociente;
+  pai.AddObject(f);
+  inc(fArvfracao);
+end;
+
+
+
+procedure TForm1.Ppesquizados(Alayout: Tlayout; Aquociente: double);
+begin
+  if Alayout.ControlsCount > 0 then
+  begin
+    for var I := 0 to Alayout.ControlsCount-1 do
+    begin
+      if Alayout.Controls[i] is TFrame_Fracao then
+      begin
+         var f:=Alayout.Controls[i] as TFrame_Fracao;
+         if Aquociente = f.quociente then
+          f.margem:=true;
+      end;
+    end;
+
+  end;
+end;
+
+function TForm1.Psimplificar(Aquociente, Anumerador,
+  Adenominador: double): Tcontrol;
+begin
+  try
+    StrToInt(Aquociente.ToString);
+    var lbl:=tlabel.Create(self);
+    lbl.Text:=Aquociente.ToString;
+    lbl.StyledSettings:=lbl.StyledSettings - [TStyledSetting.Family,TStyledSetting.size,TStyledSetting.Style,TStyledSetting.FontColor];
+    lbl.Width:=32;
+    lbl.font.Size:=30;
+    lbl.Font.Style:=lbl.Font.Style - [TFontStyle.fsBold];
+    lbl.TextAlign:=TTextAlign.Center;
+
+    result:=lbl;
+  except
+    begin
+      var dados:= divisorcomun(Anumerador,Adenominador);
+      var f:=TFrame_Fracao.Create(self);
+      f.edit1.text:=dados[0];
+      f.Edit2.Text:=dados[1];
+      //f.Name:='Fracao_prov_'+Anumerador.ToString+Adenominador.ToString;
+      result:=f;
+    end;
+  end;
+end;
+
+procedure TForm1.Psinal_Igual(eliminar: boolean);
+begin
+  if eliminar then
+  begin
+    var lb:=tlabel.Create(self);
+    lb.Align:=TAlignLayout.Left;
+    lb.Width:=32;
+    lb.Name:='Igual';
+    lb.Position.X:=10000;
+    lb.StyledSettings:=lb.StyledSettings - [TStyledSetting.Family,TStyledSetting.size,TStyledSetting.Style,TStyledSetting.FontColor];
+    lb.font.Size:=30;
+    lb.Font.Style:=lb.Font.Style - [TFontStyle.fsBold];
+    lb.TextAlign:=TTextAlign.Center;
+    lb.text:='=';
+    layout9.AddObject(lb);
+    Igual:=true;
+  end
+  else
+  begin
+    var lb:=self.FindComponent('Igual');
+    if lb <> nil then
+       lb.free;
+  end;
+end;
+
+procedure TForm1.recsinaisTracos(remover: boolean);
+begin
+  if remover then
+  begin
+
+    recmais.Stroke.Kind:=TBrushKind.None;
+    recmenos.Stroke.Kind:=TBrushKind.None;
+    recvezes.Stroke.Kind:=TBrushKind.None;
+    recdiv.Stroke.Kind:=TBrushKind.None;
+
+  end
+  else
+  begin
+    recmais.Stroke.Kind:=TBrushKind.Solid;
+    recmais.Stroke.color:=$ff000000;
+    recmais.Stroke.Thickness:=2;
+
+    recmenos.Stroke.Kind:=TBrushKind.Solid;
+    recmenos.Stroke.color:=$ff000000;
+    recmenos.Stroke.Thickness:=2;
+
+    recvezes.Stroke.Kind:=TBrushKind.Solid;
+    recvezes.Stroke.color:=$ff000000;
+    recvezes.Stroke.Thickness:=2;
+
+    recdiv.Stroke.Kind:=TBrushKind.Solid;
+    recdiv.Stroke.color:=$ff000000;
+    recdiv.Stroke.Thickness:=2;
+  end;
+end;
+
+procedure TForm1.Rectangle1MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Single);
+begin
+  if ssLeft in shift then
+  begin
+    self.StartWindowDrag;
+  end;
+end;
+
+procedure TForm1.Rectangle20DragEnter(Sender: TObject; const Data: TDragObject;
+  const Point: TPointF);
+begin
+  var r:=TRectangle(sender);
+   imgBarraCor(r,false);
+   r.Fill.Color:=$ff0099ff;
+end;
+
+procedure TForm1.Rectangle20DragLeave(Sender: TObject);
+begin
+  var r:=TRectangle(sender);
+   imgBarraCor(r);
+   r.Fill.Color:=$ffffffff;
+end;
+
+procedure TForm1.Rectangle21Click(Sender: TObject);
+begin
+  if Layout13.ControlsCount > 0 then
+  begin
+    arvore:=Tarvore.Create;
+    for var I := 0 to Layout13.ControlsCount-1 do
+    begin
+      if Layout13.Controls[i] is TFrame_Fracao then
+      begin
+          arvore.addicionar(Layout13.Controls[i] as TFrame_Fracao);
+      end;
+    end;
+
+  end;
+end;
+
+procedure TForm1.Rectangle25Click(Sender: TObject);
+begin
+    arvore.apagar;
+    var exb:=arvore.ordem(arvore.Raiz);
+    if exb.Count > 0 then
+    begin
+      if Layout14.ControlsCount > 1 then
+      begin
+        for var I := layout14.ControlsCount-1 downto 0 do
+        begin
+          layout14.Controls[i].Free;
+        end;
+      end;
+
+      for var I := 0 to exb.Count-1 do
+      begin
+        var fr:=exb.Items[i] as TFrame_Fracao;
+        pfracao(fr,layout14);
+
+      end;
+    end;
+
+    arvore.apagar;
+    exb:=arvore.Preordem(arvore.Raiz);
+    if exb.Count > 0 then
+    begin
+      if Layout15.ControlsCount > 1 then
+      begin
+        for var I := layout15.ControlsCount-1 downto 0 do
+        begin
+          layout15.Controls[i].Free;
+        end;
+      end;
+
+      for var I := 0 to exb.Count-1 do
+      begin
+        var fr:=exb.Items[i] as TFrame_Fracao;
+        pfracao(fr,layout15);
+      end;
+    end;
+
+    arvore.apagar;
+    exb:=arvore.posordem(arvore.Raiz);
+    if exb.Count > 0 then
+    begin
+      if Layout16.ControlsCount > 1 then
+      begin
+        for var I := layout16.ControlsCount-1 downto 0 do
+        begin
+          layout16.Controls[i].Free;
+        end;
+      end;
+
+      for var I := 0 to exb.Count-1 do
+      begin
+        var fr:=exb.Items[i] as TFrame_Fracao;
+        pfracao(fr,layout16);
+      end;
+    end;
+end;
+
+procedure TForm1.Rectangle2MouseEnter(Sender: TObject);
+begin
+  TRectangle(sender).AddObject(sombra);
+end;
+
+procedure TForm1.Rectangle3Click(Sender: TObject);
+begin
+  ma(tabitem2,sender);
+  svoltar.Visible:=true;
+end;
+
+procedure TForm1.Rectangle6MouseLeave(Sender: TObject);
+begin
+  imgsombra.AddObject(sombra);
+end;
+
+procedure TForm1.Rectangle7Click(Sender: TObject);
+begin
+  if layout9.ControlsCount <= 0 then
+  begin
+    var f:=TFrame_Fracao.Create(self);
+    f.Align:=TAlignLayout.Left;
+    f.Name:='fracao_'+Ffracao.ToString;
+    layout9.AddObject(f);
+    inc(ffracao);
+  end
+  else if(layout9.ControlsCount > 0) and (layout9.ControlsCount <= 5) then
+  begin
+    if igual = true then
+    begin
+
+      Psinal_Igual(false);
+      var cf:=self.FindComponent('fracao_resultado');
+      if cf <> nil then
+         cf.free;
+    end;
+    var l:=tlabel.Create(self);
+    l.Align:=TAlignLayout.Left;
+    l.Width:=32;
+    l.Name:='sinal_'+Fsinais.ToString;
+    l.Position.X:=1000;
+    l.StyledSettings:=l.StyledSettings - [TStyledSetting.Family,TStyledSetting.size,TStyledSetting.Style,TStyledSetting.FontColor];
+    l.font.Size:=30;
+    l.Font.Style:=l.Font.Style + [TFontStyle.fsBold];
+    l.TextAlign:=TTextAlign.Center;
+    l.text:='+';
+    l.HitTest:=true;
+    l.Tag:=1;
+    l.OnClick:=lclick;
+    layout9.AddObject(l);
+    inc(Fsinais);
+
+    var f:=TFrame_Fracao.Create(self);
+    f.Align:=TAlignLayout.Left;
+    f.Name:='fracao_'+Ffracao.ToString;
+    f.Position.X:=1000;
+    layout9.AddObject(f);
+    inc(ffracao);
+
+    if layout9.ControlsCount >= 5 then
+    begin
+      var lb:=tlabel.Create(self);
+      lb.Align:=TAlignLayout.Left;
+      lb.Width:=32;
+      lb.Name:='Igual';
+      lb.Position.X:=10000;
+      lb.StyledSettings:=lb.StyledSettings - [TStyledSetting.Family,TStyledSetting.size,TStyledSetting.Style,TStyledSetting.FontColor];
+      lb.font.Size:=30;
+      lb.Font.Style:=lb.Font.Style - [TFontStyle.fsBold];
+      lb.TextAlign:=TTextAlign.Center;
+      lb.text:='=';
+      layout9.AddObject(lb);
+      Igual:=true;
+    end;
+  end
+
+end;
+
+procedure TForm1.Rectangle7MouseEnter(Sender: TObject);
+begin
+  if TRectangle(sender).ChildrenCount > 0 then
+    for var I := 0 to TRectangle(sender).ChildrenCount-1 do
+    begin
+      if TRectangle(sender).Children[i].ClassType = TShadowEffect then
+        TShadowEffect(TRectangle(sender).Children[i]).ShadowColor:=$ffff5e13;
+    end;
+end;
+
+procedure TForm1.Rectangle7MouseLeave(Sender: TObject);
+begin
+if TRectangle(sender).ChildrenCount > 0 then
+    for var I := 0 to TRectangle(sender).ChildrenCount-1 do
+    begin
+      if TRectangle(sender).Children[i].ClassType = TShadowEffect then
+        TShadowEffect(TRectangle(sender).Children[i]).ShadowColor:=$ff0099ff;
+    end;
+end;
+
+procedure TForm1.Rectangle8Click(Sender: TObject);
+begin
+  if not Arvapagar then
+  begin
+    for var I := layout13.ControlsCount-1 downto 0 do
+    begin
+      layout13.Controls[i].Free;
+    end;
+
+    var f:=TFrame_Fracao.Create(self);
+    f.Align:=TAlignLayout.Left;
+    f.Name:='Arvfracao_';
+    f.Position.X:=1000;
+    layout13.AddObject(f);
+    inc(fArvfracao);
+
+    Arvapagar:=true;
+
+    TRectangle(sender).Fill.Color:=$ffff5e13;
+  end
+  else
+  begin
+    var tmpF:=self.FindComponent('Arvfracao_');
+    if tmpF <> nil then
+    begin
+      var f:=tmpF as TFrame_Fracao;
+      if arvore.pesquizar(arvore.Raiz,f.quociente) then
+      begin
+
+         PPesquizados(layout14,f.quociente);
+         PPesquizados(layout15,f.quociente);
+         PPesquizados(layout16,f.quociente);
+
+      end;
+
+    end;
+  end;
+end;
+
+procedure TForm1.Rectangle9Click(Sender: TObject);
+begin
+  if layout9.ControlsCount > 0 then
+  begin
+    if Chift then
+    begin
+      for var I := layout9.ControlsCount-1 downto 0 do
+      begin
+        layout9.Controls[i].Free;
+      end;
+    end else if (layout9.Controls[layout9.ControlsCount-1] is tlabel) and (tlabel(layout9.Controls[layout9.ControlsCount-1]).Name = 'Igual') then
+    begin
+      layout9.Controls[layout9.ControlsCount-1].Free;
+    end else if layout9.ControlsCount = 1 then
+    begin
+       layout9.Controls[layout9.ControlsCount-1].Free;
+    end else
+    begin
+        layout9.Controls[layout9.ControlsCount-1].Free;
+        layout9.Controls[layout9.ControlsCount-1].Free;
+    end;
+  end;
+  Igual:=false;
+end;
+
+procedure TForm1.svoltarClick(Sender: TObject);
+begin
+  ma(tabitem1,sender);
+  svoltar.Visible:=false;
+end;
+
+end.

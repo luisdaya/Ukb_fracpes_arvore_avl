@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5715815A-35C3-44E6-ACED-E1B41A9C18C2}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Trabalho_de_estruturadedados.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Arvore\arvore.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Trabalho_de_estruturadedados">
+        <MSBuild Projects="Trabalho_de_estruturadedados.dproj"/>
+    </Target>
+    <Target Name="Trabalho_de_estruturadedados:Clean">
+        <MSBuild Projects="Trabalho_de_estruturadedados.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Trabalho_de_estruturadedados:Make">
+        <MSBuild Projects="Trabalho_de_estruturadedados.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="arvore">
+        <MSBuild Projects="..\Arvore\arvore.dproj"/>
+    </Target>
+    <Target Name="arvore:Clean">
+        <MSBuild Projects="..\Arvore\arvore.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="arvore:Make">
+        <MSBuild Projects="..\Arvore\arvore.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Trabalho_de_estruturadedados;arvore"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Trabalho_de_estruturadedados:Clean;arvore:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Trabalho_de_estruturadedados:Make;arvore:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

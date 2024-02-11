@@ -1,0 +1,56 @@
+object Frame_Fracao: TFrame_Fracao
+  Size.Width = 50.000000000000000000
+  Size.Height = 80.000000000000000000
+  Size.PlatformDefault = False
+  OnResize = FrameResize
+  object Layout1: TLayout
+    Align = Client
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Size.Width = 40.000000000000000000
+    Size.Height = 70.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Line1: TLine
+      Align = Top
+      LineType = Bottom
+      Position.Y = 34.000000000000000000
+      Size.Width = 40.000000000000000000
+      Size.Height = 2.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Thickness = 2.000000000000000000
+    end
+    object Edit1: TEdit
+      Tag = 1
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Top
+      StyleLookup = 'Edit1Style1'
+      TabOrder = 2
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.HorzAlign = Center
+      Size.Width = 40.000000000000000000
+      Size.Height = 34.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = '0'
+      StyledSettings = [Family, Style, FontColor]
+      OnChangeTracking = Edit1ChangeTracking
+    end
+    object Edit2: TEdit
+      Tag = 2
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      StyleLookup = 'Edit1Style1'
+      TabOrder = 1
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.HorzAlign = Center
+      Size.Width = 40.000000000000000000
+      Size.Height = 34.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = '0'
+      StyledSettings = [Family, Style, FontColor]
+      OnChangeTracking = Edit1ChangeTracking
+    end
+  end
+end
